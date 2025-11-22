@@ -1,0 +1,53 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.contact {
+    padding: 100px 0;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .title {
+        font-size: clamp(40px, 5vw, 60px);
+        font-weight: 600;
+        color: $color-text-primary;
+        margin-bottom: 20px;
+    }
+
+    .description {
+        color: $color-text-secondary;
+        font-size: 20px;
+        line-height: 1.5;
+        margin-bottom: 50px;
+    }
+
+    .links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1.25rem 1.75rem;
+            border: 1px solid $color-brand-accent;
+            border-radius: 4px;
+            color: $color-brand-accent;
+            font-family: $font-family-mono;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+            &:hover {
+                background-color: rgba($color-brand-accent, 0.1);
+                transform: translateY(-3px);
+            }
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

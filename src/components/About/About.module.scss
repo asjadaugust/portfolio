@@ -1,0 +1,78 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.about {
+    padding: $spacing-xl $spacing-lg;
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+
+    .container {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: $spacing-xl;
+        align-items: start;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: $spacing-lg;
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+
+        &::after {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 300px;
+            background: $color-border;
+
+            @include mobile {
+                width: 100px;
+            }
+        }
+    }
+
+    .bio {
+        p {
+            margin-bottom: $spacing-md;
+            line-height: 1.6;
+            color: $color-text-secondary;
+            font-size: 1.1rem;
+        }
+    }
+
+    .skills {
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: $spacing-md;
+            color: $color-text-primary;
+        }
+
+        .skillList {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $spacing-sm;
+
+            li {
+                position: relative;
+                padding-left: $spacing-md;
+                color: $color-text-secondary;
+                font-family: $font-family-mono;
+                font-size: 0.9rem;
+
+                &::before {
+                    content: '▹';
+                    position: absolute;
+                    left: 0;
+                    color: $color-brand-accent;
+                }
+            }
+        }
+    }
+}

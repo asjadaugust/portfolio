@@ -1,0 +1,236 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.dashboardLayout {
+    min-height: 100vh;
+    background: #f8fafc;
+    color: #1e293b;
+    font-family: $font-family-sans;
+
+    header {
+        background: white;
+        border-bottom: 1px solid #e2e8f0;
+        padding: $spacing-md $spacing-xl;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: $spacing-md;
+
+            img {
+                height: 32px;
+            }
+
+            h1 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #0f172a;
+            }
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: $spacing-md;
+
+            span {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+
+            .avatar {
+                width: 36px;
+                height: 36px;
+                background: #3b82f6;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .main {
+        padding: $spacing-xl;
+        max-width: 1600px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: $spacing-xl;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: $spacing-lg;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: $spacing-xl;
+
+    h2 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: $spacing-lg;
+        color: #334155;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.projectMap {
+    height: 400px;
+    background: #e2e8f0;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+
+    .marker {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+        &:hover .tooltip {
+            opacity: 1;
+        }
+
+        .dot {
+            width: 16px;
+            height: 16px;
+            background: #ef4444;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.ganttChart {
+    display: grid;
+    grid-template-columns: 150px repeat(12, 1fr);
+    gap: 1px;
+    background: #e2e8f0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow-x: auto;
+
+    .header {
+        background: #f8fafc;
+        padding: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+        color: #64748b;
+    }
+
+    .row {
+        background: white;
+        display: contents;
+
+        .label {
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-right: 1px solid #e2e8f0;
+            background: white;
+            position: sticky;
+            left: 0;
+        }
+
+        .cell {
+            background: white;
+            height: 40px;
+            position: relative;
+
+            .bar {
+                position: absolute;
+                top: 8px;
+                bottom: 8px;
+                left: 0;
+                right: 0;
+                border-radius: 4px;
+                opacity: 0.8;
+
+                &.planning {
+                    background: #3b82f6;
+                }
+
+                &.construction {
+                    background: #f59e0b;
+                }
+
+                &.review {
+                    background: #10b981;
+                }
+            }
+        }
+    }
+}
+
+.resourceTable {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        padding: 8px;
+        font-size: 0.85rem;
+        color: #64748b;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    td {
+        padding: 12px 8px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #f1f5f9;
+
+        .status {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+
+            &.active {
+                background: #dcfce7;
+                color: #166534;
+            }
+
+            &.maintenance {
+                background: #fee2e2;
+                color: #991b1b;
+            }
+
+            &.idle {
+                background: #f1f5f9;
+                color: #475569;
+            }
+        }
+    }
+}

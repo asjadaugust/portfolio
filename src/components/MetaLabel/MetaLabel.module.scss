@@ -1,0 +1,81 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.metaLabel {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 50;
+
+    .trigger {
+        width: 24px;
+        height: 24px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: help;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: $color-brand-blue;
+            transform: scale(1.1);
+        }
+    }
+
+    .tooltip {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 8px;
+        background: #1e293b;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        width: 200px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4px);
+        transition: all 0.2s ease;
+        pointer-events: none;
+        z-index: 100;
+
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: $color-brand-accent;
+        }
+
+        p {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: 10px;
+            width: 8px;
+            height: 8px;
+            background: #1e293b;
+            transform: rotate(45deg);
+        }
+    }
+}

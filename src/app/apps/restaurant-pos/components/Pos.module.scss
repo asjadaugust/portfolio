@@ -1,0 +1,412 @@
+@use "sass:color";
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.posLayout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background: $color-bg-secondary;
+
+    .menuSection {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        header {
+            padding: $spacing-lg;
+            background: $color-bg-primary;
+            border-bottom: 1px solid $color-border;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: $color-text-primary;
+            }
+
+            .categories {
+                display: flex;
+                gap: $spacing-md;
+                overflow-x: auto;
+                padding-bottom: 4px;
+
+                button {
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    border: 1px solid $color-border;
+                    background: $color-bg-primary;
+                    color: $color-text-secondary;
+                    font-weight: 600;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: all 0.2s ease;
+
+                    &.active,
+                    &:hover {
+                        background: $color-brand-blue;
+                        color: white;
+                        border-color: $color-brand-blue;
+                    }
+                }
+            }
+        }
+
+        .menuGrid {
+            padding: $spacing-lg;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: $spacing-lg;
+
+            .menuItem {
+                background: $color-bg-primary;
+                border-radius: 12px;
+                overflow: hidden;
+                border: 1px solid $color-border;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                display: flex;
+                flex-direction: column;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-color: $color-brand-blue;
+                }
+
+                .imageWrapper {
+                    height: 140px;
+                    background: $color-bg-secondary;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .info {
+                    padding: $spacing-md;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+
+                    h3 {
+                        font-size: 1rem;
+                        font-weight: 700;
+                        margin-bottom: 4px;
+                        color: $color-text-primary;
+                    }
+
+                    p {
+                        font-size: 0.8rem;
+                        color: $color-text-secondary;
+                        margin-bottom: $spacing-md;
+                        flex: 1;
+                    }
+
+                    .price {
+                        font-weight: 700;
+                        color: $color-brand-blue;
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .cartSidebar {
+        width: 350px;
+        background: $color-bg-primary;
+        border-left: 1px solid $color-border;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        header {
+            padding: $spacing-lg;
+            border-bottom: 1px solid $color-border;
+
+            h2 {
+                font-size: 1.25rem;
+                font-weight: 700;
+            }
+        }
+
+        .cartItems {
+            flex: 1;
+            overflow-y: auto;
+            padding: $spacing-lg;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-md;
+
+            .cartItem {
+                display: flex;
+                gap: $spacing-md;
+                padding-bottom: $spacing-md;
+                border-bottom: 1px solid $color-border;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 8px;
+                    object-fit: cover;
+                }
+
+                .details {
+                    flex: 1;
+
+                    h4 {
+                        font-size: 0.95rem;
+                        font-weight: 600;
+                        margin-bottom: 4px;
+                    }
+
+                    .price {
+                        color: $color-text-secondary;
+                        font-size: 0.9rem;
+                    }
+                }
+
+                .quantity {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 4px;
+
+                    button {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        border: 1px solid $color-border;
+                        background: transparent;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:hover {
+                            background: $color-bg-secondary;
+                        }
+                    }
+
+                    span {
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            padding: $spacing-lg;
+            border-top: 1px solid $color-border;
+            background: $color-bg-secondary;
+
+            .total {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: $spacing-lg;
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: $color-text-primary;
+            }
+
+            button {
+                width: 100%;
+                padding: $spacing-md;
+                background: $color-brand-accent;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background: color.adjust($color-brand-accent, $lightness: -10%);
+                    transform: translateY(-2px);
+                }
+
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+
+.landingPage {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1920&q=80') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: white;
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: $spacing-sm;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: $spacing-xl;
+            opacity: 0.9;
+        }
+
+        .options {
+            display: flex;
+            gap: $spacing-xl;
+            justify-content: center;
+
+            .optionCard {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                padding: $spacing-xl;
+                border-radius: 16px;
+                width: 200px;
+                text-decoration: none;
+                color: white;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: $spacing-md;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateY(-8px);
+                }
+
+                .icon {
+                    width: 80px;
+                    height: 80px;
+                    background: $color-brand-accent;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: $spacing-sm;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.ordersPage {
+    min-height: 100vh;
+    background: #1e1e1e;
+    color: white;
+    padding: $spacing-xl;
+
+    header {
+        text-align: center;
+        margin-bottom: $spacing-xl;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: $color-brand-accent;
+        }
+    }
+
+    .statusGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-xl;
+        max-width: 1200px;
+        margin: 0 auto;
+        height: calc(100vh - 200px);
+
+        .column {
+            background: #2d2d2d;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+            .header {
+                padding: $spacing-xl;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: $spacing-md;
+                font-size: 1.5rem;
+                font-weight: 800;
+
+                svg {
+                    margin-right: 8px;
+                }
+            }
+
+            &.ready {
+                .header {
+                    background: $color-success;
+                }
+
+                .number {
+                    color: $color-success;
+                    font-size: 4rem;
+                }
+            }
+
+            &.preparing {
+                .header {
+                    background: $color-brand-blue;
+                }
+
+                .number {
+                    color: white;
+                    font-size: 3rem;
+                    opacity: 0.8;
+                }
+            }
+
+            .numbers {
+                padding: $spacing-xl;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: $spacing-xl;
+                text-align: center;
+
+                .number {
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+}

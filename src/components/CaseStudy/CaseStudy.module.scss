@@ -1,0 +1,82 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.caseStudy {
+    padding-top: 80px; // Navbar height
+    min-height: 100vh;
+    background: $color-bg-primary;
+
+    .hero {
+        padding: $spacing-3xl $spacing-xl;
+        background: linear-gradient(180deg, #f0f9ff 0%, $color-bg-primary 100%);
+        text-align: center;
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: $color-text-primary;
+            margin-bottom: $spacing-md;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            font-size: 1.25rem;
+            color: $color-text-secondary;
+            max-width: 800px;
+            margin: 0 auto $spacing-xl;
+            line-height: 1.6;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: $spacing-lg;
+            flex-wrap: wrap;
+
+            span {
+                font-family: $font-family-mono;
+                font-size: 0.9rem;
+                color: $color-brand-blue;
+                background: rgba($color-brand-blue, 0.1);
+                padding: 4px 12px;
+                border-radius: 16px;
+            }
+        }
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: $spacing-3xl $spacing-xl;
+
+        section {
+            margin-bottom: $spacing-3xl;
+
+            h2 {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: $spacing-lg;
+                color: $color-text-primary;
+            }
+
+            p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: $color-text-secondary;
+                margin-bottom: $spacing-md;
+            }
+
+            ul {
+                list-style: disc;
+                padding-left: $spacing-lg;
+                margin-bottom: $spacing-md;
+
+                li {
+                    margin-bottom: $spacing-sm;
+                    color: $color-text-secondary;
+                    line-height: 1.6;
+                }
+            }
+        }
+    }
+}

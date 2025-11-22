@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  portfolio:
+    container_name: portfolio-asjad
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    # If you need to persist data or logs, uncomment below
+    # volumes:
+    #   - ./logs:/app/logs
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

@@ -1,0 +1,152 @@
+@use "sass:color";
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.adminLayout {
+    display: flex;
+    min-height: 100vh;
+    background: $color-bg-secondary;
+
+    .sidebar {
+        width: 250px;
+        background: $color-bg-primary;
+        border-right: 1px solid $color-border;
+        padding: $spacing-xl;
+        position: fixed;
+        height: 100vh;
+
+        h2 {
+            color: $color-brand-blue;
+            margin-bottom: $spacing-xl;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-sm;
+
+            a {
+                padding: $spacing-md;
+                border-radius: 8px;
+                color: $color-text-secondary;
+                font-weight: 500;
+                transition: all 0.2s ease;
+
+                &:hover,
+                &.active {
+                    background: rgba($color-brand-blue, 0.1);
+                    color: $color-brand-blue;
+                }
+            }
+        }
+    }
+
+    .content {
+        flex: 1;
+        margin-left: 250px;
+        padding: $spacing-xl;
+    }
+}
+
+.statsContainer {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: $spacing-lg;
+        margin-bottom: $spacing-xl;
+
+        .card {
+            background: $color-bg-primary;
+            padding: $spacing-lg;
+            border-radius: 12px;
+            border: 1px solid $color-border;
+            display: flex;
+            align-items: center;
+            gap: $spacing-lg;
+
+            .icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                background: rgba($color-brand-blue, 0.1);
+                color: $color-brand-blue;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            h3 {
+                font-size: 0.9rem;
+                color: $color-text-secondary;
+                margin-bottom: 4px;
+            }
+
+            p {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $color-text-primary;
+            }
+        }
+    }
+
+    .chart {
+        background: $color-bg-primary;
+        padding: $spacing-xl;
+        border-radius: 12px;
+        border: 1px solid $color-border;
+
+        h3 {
+            margin-bottom: $spacing-lg;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.fleetTable {
+    background: $color-bg-primary;
+    border-radius: 12px;
+    border: 1px solid $color-border;
+    overflow: hidden;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th,
+        td {
+            padding: $spacing-md $spacing-lg;
+            text-align: left;
+            border-bottom: 1px solid $color-border;
+        }
+
+        th {
+            background: $color-bg-secondary;
+            font-weight: 600;
+            color: $color-text-secondary;
+            font-size: 0.9rem;
+        }
+
+        td {
+            color: $color-text-primary;
+            font-size: 0.95rem;
+
+            .status {
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 0.8rem;
+                font-weight: 500;
+
+                &.available {
+                    background: rgba($color-success, 0.1);
+                    color: color.adjust($color-success, $lightness: -20%);
+                }
+
+                &.rented {
+                    background: rgba($color-warning, 0.1);
+                    color: color.adjust($color-warning, $lightness: -20%);
+                }
+            }
+        }
+    }
+}
