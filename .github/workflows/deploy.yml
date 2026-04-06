@@ -1,0 +1,28 @@
+name: Deploy to NAS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: nas
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Sync files to portfolio directory
+        run: |
+          rsync -av --delete \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.next' \
+            --exclude='logs' \
+            $GITHUB_WORKSPACE/ /volume1/docker/portfolio/
+
+      - name: Build and restart
+        working-directory: /volume1/docker/portfolio
+        run: |
+          /usr/local/bin/docker-compose build --no-cache
+          /usr/local/bin/docker-compose up -d
