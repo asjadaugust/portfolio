@@ -1,0 +1,37 @@
+.panel {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+}
+
+.tagline {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+}
+
+.chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}

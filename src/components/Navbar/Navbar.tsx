@@ -25,7 +25,7 @@ export default function Navbar() {
         </Link>
 
         <div className={styles.links}>
-          <Link href="/#about">About</Link>
+          <Link href="/#journey">Journey</Link>
           <Link href="/#work">Work</Link>
           <Link href="/#contact">Contact</Link>
         </div>

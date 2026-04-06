@@ -1,0 +1,174 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.journey {
+  padding: $spacing-xl $spacing-lg;
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+  position: relative;
+  min-height: 90vh;
+
+  .header {
+    margin-bottom: $spacing-xl;
+
+    .label {
+      font-size: 0.75rem;
+      color: rgba(0, 161, 222, 0.7);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-family: $font-family-mono;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
+
+      &::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 300px;
+        background: $color-border;
+
+        @include mobile {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 52% 48%;
+    gap: $spacing-xl;
+    align-items: center;
+    min-height: 520px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .globeColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .globeWrapper {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1 / 1;
+      position: relative;
+
+      @include mobile {
+        max-width: 280px;
+      }
+    }
+
+    .navDots {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: $spacing-lg;
+      align-items: center;
+    }
+
+    .navDot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+
+      .navDotCircle {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      &.active .navDotCircle {
+        width: 10px;
+        height: 10px;
+        box-shadow: 0 0 8px currentColor;
+      }
+
+      .navDotLabel {
+        font-size: 0.6rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 1px;
+        font-family: $font-family-mono;
+      }
+
+      &.active .navDotLabel {
+        color: currentColor;
+        font-weight: 600;
+      }
+    }
+
+    .navSeparator {
+      width: 24px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .panelColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 480px;
+
+    @include tablet {
+      min-height: auto;
+    }
+  }
+
+  .progressBar {
+    margin-top: $spacing-lg;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .progressTrack {
+      flex: 1;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progressFill {
+      height: 100%;
+      background: #00a1de;
+      border-radius: 2px;
+      transition: width 0.1s linear;
+    }
+
+    .progressLabel {
+      font-size: 0.625rem;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 1px;
+      font-family: $font-family-mono;
+    }
+  }
+}
