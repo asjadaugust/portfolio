@@ -34,7 +34,7 @@ function Stars(props: any) {
 
 export default function HeroBackground() {
   return (
-    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, opacity: 0.5 }}>
+    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, opacity: 1 }}>
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Stars />
       </Canvas>

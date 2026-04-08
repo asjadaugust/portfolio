@@ -1,3 +1,5 @@
+@use '@/styles/variables' as *;
+
 .card {
     display: flex;
     flex-direction: column;
@@ -25,9 +27,10 @@
     display: inline-flex;
     align-items: center;
     padding: 0.25rem 0.6rem;
+    font-family: $font-family-mono;
     font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     border-radius: 999px;
     color: var(--accent);
@@ -36,22 +39,24 @@
 }
 
 .period {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-family: var(--font-mono, monospace);
+    font-family: $font-family-mono;
+    font-size: 0.7rem;
+    color: $color-text-tertiary;
 }
 
 .role {
+    font-family: $font-family-display;
     font-size: 1.1rem;
-    font-weight: 600;
-    color: #ffffff;
+    font-weight: 500;
+    color: $color-text-primary;
     line-height: 1.3;
     margin: 0;
 }
 
 .org {
+    font-family: $font-family-sans;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: $color-text-secondary;
     margin: 0;
 }
 
@@ -66,9 +71,10 @@
     display: inline-flex;
     align-items: center;
     padding: 0.2rem 0.55rem;
+    font-family: $font-family-mono;
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.65);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: $color-text-secondary;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid $color-border;
     border-radius: 999px;
 }

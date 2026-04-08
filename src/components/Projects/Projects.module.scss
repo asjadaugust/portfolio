@@ -7,8 +7,9 @@
     margin: 0 auto;
 
     .title {
-        font-size: 2rem;
-        font-weight: 700;
+        font-family: $font-family-display;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
         margin-bottom: $spacing-xl;
         display: flex;
         align-items: center;
@@ -18,9 +19,9 @@
         &::after {
             content: '';
             display: block;
-            height: 2px;
-            width: 100px;
-            background: $color-brand-blue;
+            height: 1px;
+            width: 200px;
+            background: linear-gradient(90deg, $color-brand-blue, transparent);
         }
     }
 
@@ -31,7 +32,7 @@
     }
 
     .card {
-        background: $color-bg-primary;
+        background: $color-bg-secondary;
         border-radius: 8px;
         overflow: hidden;
         transition: all 0.3s ease;
@@ -39,12 +40,12 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 
         &:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            border-color: $color-brand-blue;
+            border-color: rgba(0, 161, 222, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 161, 222, 0.15);
         }
 
         .content {
@@ -68,10 +69,11 @@
         }
 
         h3 {
+            font-family: $font-family-display;
             font-size: 1.25rem;
             margin-bottom: $spacing-sm;
             color: $color-text-primary;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         p {
@@ -90,11 +92,12 @@
 
             span {
                 font-family: $font-family-mono;
-                font-size: 0.75rem;
-                color: $color-text-secondary;
-                background: $color-bg-secondary;
-                padding: 2px 8px;
-                border-radius: 12px;
+                font-size: 0.7rem;
+                color: $color-brand-blue;
+                background: rgba(0, 161, 222, 0.08);
+                border: 1px solid rgba(0, 161, 222, 0.2);
+                padding: 3px 10px;
+                border-radius: 3px;
             }
         }
     }
